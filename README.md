@@ -1,5 +1,3 @@
 # RhythmGame
 
-Check "master" branch, iNe1t can't push in main
-Nope, i can
- :)
+Just a little rhythm game from little developer group
