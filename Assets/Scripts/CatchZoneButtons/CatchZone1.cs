@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeatCatcher : MonoBehaviour
+public class CatchZone1 : MonoBehaviour
 {
-    public string SendNumbers() {
-        return beatCount.ToString();
+    public float SendNumbers() {
+        return beatCount;
     }
     float beatCount = 0f;
+    public KeyCode keyToPress;
     private void OnTriggerStay2D(Collider2D other) {
-        if(Input.GetKey(KeyCode.Space)) {
+        if(Input.GetKey(keyToPress)) {
             
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
