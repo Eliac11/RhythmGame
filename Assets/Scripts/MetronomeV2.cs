@@ -10,7 +10,6 @@ public class MetronomeV2 : MonoBehaviour
     public bool hasStarted = false;
     public Text words;
     public BeatCatcher bc;
-    public float speed = 100f;
     public int allBeats;
     // Start is called before the first frame update
     void Start()
@@ -32,7 +31,7 @@ public class MetronomeV2 : MonoBehaviour
             words.text = "";
         }
        } else {
-            transform.position -= new Vector3(beatTempo * Time.deltaTime* speed, 0f, 0f);
+            transform.position -= new Vector3(beatTempo * Time.deltaTime, 0f, 0f);
        }
     }
 }
