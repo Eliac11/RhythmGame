@@ -23,6 +23,7 @@ public class MetronomeV2 : MonoBehaviour
     }
     IEnumerator waiter(int secs) {
         yield return new WaitForSecondsRealtime(secs);
+        SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
     }
     void Update(){
         allCatchedBeats = GameObject.Find("CatchZone1").GetComponent<CatchZone1>().SendNumbers() +  
@@ -31,9 +32,9 @@ public class MetronomeV2 : MonoBehaviour
                             GameObject.Find("CatchZone4").GetComponent<CatchZone4>().SendNumbers();
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            words.text = allCatchedBeats.ToString() + "/" + allBeats.ToString(); 
-           Destroy(GameObject.Find("NoteList"));
            StartCoroutine(waiter(5));
-           SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
+        //    SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
+
            }
         if(!hasStarted) {
             if(Input.anyKeyDown) {
