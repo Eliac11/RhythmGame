@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CatchZone4 : MonoBehaviour
 {
+    public AudioSource audioSource;
+    public AudioClip clip;
     public float SendNumbers() {
         return beatCount;
     }
@@ -11,7 +13,7 @@ public class CatchZone4 : MonoBehaviour
     public KeyCode keyToPress;
     private void OnTriggerStay2D(Collider2D other) {
         if(Input.GetKey(keyToPress)) {
-            
+            audioSource.PlayOneShot(clip, 0.5f);
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
                 Destroy(other.gameObject);
