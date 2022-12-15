@@ -12,7 +12,7 @@ public class CatchZone2 : MonoBehaviour
     float beatCount = 0f;
     public KeyCode keyToPress;
     private void OnTriggerStay2D(Collider2D other) {
-        if(Input.GetKey(keyToPress)) {
+        if(Input.GetKeyDown(keyToPress)) {
             audioSource.PlayOneShot(clip, 0.5f);
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
