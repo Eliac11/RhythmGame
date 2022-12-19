@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CatchZone1 : MonoBehaviour
+public class CatchZone : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip clip;
