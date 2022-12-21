@@ -1878,7 +1878,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Press Spacebar to Start
+  m_Text: 'Tap when you''re ready
 
 '
 --- !u!222 &1365248650
