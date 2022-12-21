@@ -26,10 +26,10 @@ public class MetronomeV2 : MonoBehaviour
         SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
     }
     void Update(){
-        allCatchedBeats = GameObject.Find("CatchZone1").GetComponent<CatchZone1>().SendNumbers() +  
-                            GameObject.Find("CatchZone2").GetComponent<CatchZone2>().SendNumbers()+
-                            GameObject.Find("CatchZone3").GetComponent<CatchZone3>().SendNumbers()+
-                            GameObject.Find("CatchZone4").GetComponent<CatchZone4>().SendNumbers();
+        allCatchedBeats = GameObject.Find("CatchZone1").GetComponent<CatchZone>().SendNumbers() +  
+                            GameObject.Find("CatchZone2").GetComponent<CatchZone>().SendNumbers()+
+                            GameObject.Find("CatchZone3").GetComponent<CatchZone>().SendNumbers()+
+                            GameObject.Find("CatchZone4").GetComponent<CatchZone>().SendNumbers();
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            words.text = allCatchedBeats.ToString() + "/" + allBeats.ToString(); 
            StartCoroutine(waiter(5));
