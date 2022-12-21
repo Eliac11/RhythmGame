@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034cb20d1dc62ab4895801b1597cc5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 140
+  bpm: 90
   allCatchedBeats: 0
   hasStarted: 0
   words: {fileID: 1365248649}
