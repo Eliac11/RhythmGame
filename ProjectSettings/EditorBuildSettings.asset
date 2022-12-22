@@ -16,8 +16,8 @@ EditorBuildSettings:
     guid: e2badad5b442f4449942e7caf8484237
   - enabled: 1
     path: Assets/Scenes/Lesson1.unity
-    guid: 54a2527ef1cc78a4db30d45f066abd5c
+    guid: 0d4f09b954042344ea28da7d11636ebc
   - enabled: 1
     path: Assets/Scenes/Lesson2.unity
-    guid: 937f69bd201a62742bf92a6d3fe097bb
+    guid: fd368a9dd5efc5e419208f285521076b
   m_configObjects: {}
