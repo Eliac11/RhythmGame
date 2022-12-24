@@ -7,6 +7,7 @@ public class Destroyer : MonoBehaviour
     // Start is called before the first frame update
     private void OnTriggerEnter2D(Collider2D other) {
         Destroy(other.gameObject);
-        Debug.Log("Miss :(");
+        GameObject.Find("NoteList").GetComponent<MetronomeV2>().words.text = "Miss :(";
+        // Debug.Log("Miss :(");
     }
 }

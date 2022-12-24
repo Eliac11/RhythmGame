@@ -18,7 +18,8 @@ public class CatchZone : MonoBehaviour
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
                 Destroy(other.gameObject);
-                Debug.Log("Well Done!!!" + SendNumbers() + "/" + GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats);
+                GameObject.Find("NoteList").GetComponent<MetronomeV2>().words.text = "Well Done!";
+                // Debug.Log("Well Done!!!" + SendNumbers() + "/" + GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats);
             }
         }
     }

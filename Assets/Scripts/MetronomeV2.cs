@@ -9,6 +9,7 @@ public class MetronomeV2 : MonoBehaviour
 {
     public float bpm = 120f;
     float beatTempo;
+    public GameObject metronome;
     public float allCatchedBeats = 0f;
     public bool hasStarted = false;
     public Text words;
@@ -40,6 +41,7 @@ public class MetronomeV2 : MonoBehaviour
             if(Input.anyKeyDown) {
                 hasStarted = true;
                 words.text = "";
+                Instantiate(metronome, new Vector3(0, -6, 0), Quaternion.identity);
             }
         } else {
             transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
