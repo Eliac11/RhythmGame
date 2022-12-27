@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuOnClicks : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     public void LessonsMenuScene() {
         SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
