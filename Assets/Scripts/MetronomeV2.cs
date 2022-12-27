@@ -10,7 +10,6 @@ public class MetronomeV2 : MonoBehaviour
     public float bpm = 120f;
     float beatTempo;
     public GameObject metronome;
-    public GameObject CompleteWindow;
     public float allCatchedBeats = 0f;
     public bool hasStarted = false;
     public Text words;
@@ -24,10 +23,12 @@ public class MetronomeV2 : MonoBehaviour
         beatTempo = bpm / 60f;
     }
     IEnumerator waiter(int secs) {
-        CompleteWindow.SetActive(true);
+        GameObject.Find("CompleteWindow").SetActive(true);
         yield return new WaitForSecondsRealtime(secs);
     }
     void Update(){
+        GameObject.Find("CompleteWindow").SetActive(false);
+        GameObject.Find("CompleteWindow").SetActive(true);
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            StartCoroutine(waiter(3));
         }
