@@ -2206,6 +2206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bpm: 120
   metronome: {fileID: 6460048100562120796, guid: b0c31559ebfd6c44bb0570011bb54b8d, type: 3}
+  CompleteWindow: {fileID: 1986181394}
   allCatchedBeats: 0
   hasStarted: 0
   words: {fileID: 1365248649}
@@ -3126,7 +3127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1986181395
 RectTransform:
   m_ObjectHideFlags: 0
