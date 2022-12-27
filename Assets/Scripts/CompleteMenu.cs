@@ -18,7 +18,7 @@ public class CompleteMenu : MonoBehaviour {
     }
 
     void Start() {
-       allBeats = GameObject.Find("NoteList").transform.childCount; 
+       allBeats = GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats; 
     }
 
 
@@ -29,7 +29,7 @@ public class CompleteMenu : MonoBehaviour {
                             GameObject.Find("CatchZone4").GetComponent<CatchZone>().SendNumbers();
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            tiles.text = "Tiles Tapped: " + allCatchedBeats.ToString() + "/" + allBeats.ToString();
-           percentage.text = "Complete Percent: " + Mathf.Round(allCatchedBeats/allBeats);
+           percentage.text = "Complete Percent: " + (allCatchedBeats/allBeats)*100;
         }
     }
 }

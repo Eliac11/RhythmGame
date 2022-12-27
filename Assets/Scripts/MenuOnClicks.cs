@@ -15,7 +15,7 @@ public class MenuOnClicks : MonoBehaviour
     public void Exit() {
         Application.Quit();
     }
-    public void LessonLoader(int LessonNum) {
-        SceneManager.LoadScene("Lesson" + LessonNum.ToString(), LoadSceneMode.Single);
+    public void LessonLoader(string LessonNum) {
+        SceneManager.LoadScene("Lesson" + LessonNum, LoadSceneMode.Single);
     }
 }

@@ -634,13 +634,13 @@ MonoBehaviour:
       - m_Target: {fileID: 819433868}
         m_TargetAssemblyTypeName: MenuOnClicks, Assembly-CSharp
         m_MethodName: LessonLoader
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Prototype
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &515221390
@@ -1900,7 +1900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lesson 1
+  m_text: Lesson Test
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02323154b8d65814da4d6ad0c0001906, type: 2}
   m_sharedMaterial: {fileID: 2666576611603791575, guid: 02323154b8d65814da4d6ad0c0001906, type: 2}
@@ -3198,7 +3198,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Some Beat
+  m_text: 'Test Beat
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02323154b8d65814da4d6ad0c0001906, type: 2}
   m_sharedMaterial: {fileID: 2666576611603791575, guid: 02323154b8d65814da4d6ad0c0001906, type: 2}

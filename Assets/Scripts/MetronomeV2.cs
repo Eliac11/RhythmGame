@@ -19,6 +19,7 @@ public class MetronomeV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CompleteWindow.SetActive(false);
         allBeats = GameObject.Find("NoteList").transform.childCount;
         // bc = GameObject.Find("CatchZone").GetComponent<BeatCatcher>();
         beatTempo = bpm / 60f;
