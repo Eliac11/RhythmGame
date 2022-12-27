@@ -23,20 +23,15 @@ public class MetronomeV2 : MonoBehaviour
         beatTempo = bpm / 60f;
     }
     IEnumerator waiter(int secs) {
+        GameObject.Find("CompleteWindow").SetActive(true);
         yield return new WaitForSecondsRealtime(secs);
-        SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
     }
     void Update(){
-        allCatchedBeats = GameObject.Find("CatchZone1").GetComponent<CatchZone>().SendNumbers() +  
-                            GameObject.Find("CatchZone2").GetComponent<CatchZone>().SendNumbers()+
-                            GameObject.Find("CatchZone3").GetComponent<CatchZone>().SendNumbers()+
-                            GameObject.Find("CatchZone4").GetComponent<CatchZone>().SendNumbers();
+        GameObject.Find("CompleteWindow").SetActive(false);
+        GameObject.Find("CompleteWindow").SetActive(true);
         if(GameObject.Find("NoteList").transform.childCount == 0) {
-           words.text = allCatchedBeats.ToString() + "/" + allBeats.ToString(); 
-           StartCoroutine(waiter(5));
-        //    SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
-
-           }
+           StartCoroutine(waiter(3));
+        }
         if(!hasStarted) {
             if(Input.anyKeyDown) {
                 hasStarted = true;
