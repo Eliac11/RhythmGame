@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public bool del;
+
     private void OnTriggerEnter2D(Collider2D other) {
-        Destroy(other.gameObject);
-        GameObject.Find("NoteList").GetComponent<MetronomeV2>().words.text = "Miss :(";
-        // Debug.Log("Miss :(");
+        if (other.tag == "BeatMark"){
+            if (del){
+                Destroy(other.gameObject);
+            } else {
+                GameObject.Find("NoteList").GetComponent<MetronomeV2>().words.text = "Miss :(";
+            }
+        }
     }
 }

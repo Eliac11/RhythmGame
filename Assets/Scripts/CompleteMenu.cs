@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-
 public class CompleteMenu : MonoBehaviour {
 
     public Text percentage;
@@ -29,7 +28,7 @@ public class CompleteMenu : MonoBehaviour {
                             GameObject.Find("CatchZone4").GetComponent<CatchZone>().SendNumbers();
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            tiles.text = "Tiles Tapped: " + allCatchedBeats.ToString() + "/" + allBeats.ToString();
-           percentage.text = "Complete Percent: " + (allCatchedBeats/allBeats)*100;
+           percentage.text = "Complete Percent: " + Mathf.RoundToInt((allCatchedBeats/allBeats)*100);
         }
     }
 }

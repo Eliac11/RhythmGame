@@ -14,6 +14,8 @@ public class MetronomeV2 : MonoBehaviour
     public float allCatchedBeats = 0f;
     public bool hasStarted = false;
     public Text words;
+    public Text startWords;
+
     // public BeatCatcher bc;
     public int allBeats;
     // Start is called before the first frame update
@@ -35,7 +37,7 @@ public class MetronomeV2 : MonoBehaviour
         if(!hasStarted) {
             if(Input.anyKeyDown) {
                 hasStarted = true;
-                words.text = "";
+                startWords.text = "";
                 Instantiate(metronome, new Vector3(0, -6, 0), Quaternion.identity);
             }
         } else {
