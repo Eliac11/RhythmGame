@@ -7,19 +7,11 @@ public class CatchZone : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip clip;
-    public bool btnClick;
-    
     public float SendNumbers() {
         return beatCount;
     }
-
-    public void click() {
-        btnClick = !btnClick;
-        Debug.Log("fdsfsd");
-    }
-
-    void BeatMaker(Collider2D other) {
-        if(btnClick) {
+    public void BeatMaker(bool canBeat, Collider2D other) {
+        if(canBeat) {
             audioSource.PlayOneShot(clip, 0.5f);
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
@@ -32,6 +24,6 @@ public class CatchZone : MonoBehaviour
     float beatCount = 0f;
     public KeyCode keyToPress;
     void OnTriggerStay2D(Collider2D other) {
-        BeatMaker(other);
+        BeatMaker(true, other);
     }
 }
