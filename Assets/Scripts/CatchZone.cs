@@ -18,11 +18,6 @@ public class CatchZone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public float SendNumbers() {
         return beatCount;
     }
-
-    // public void click() {
-    //     btnClick = true;
-    // }
-
     void BeatMaker(Collider2D other) {
     }
     float beatCount = 0f;
