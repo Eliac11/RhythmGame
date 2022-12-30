@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CatchZone : MonoBehaviour
+public class OldCatchZone : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip clip;
