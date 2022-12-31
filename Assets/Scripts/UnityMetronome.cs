@@ -52,7 +52,7 @@ public class UnityMetronome: MonoBehaviour
                     accent = 1;
                     amp *= 2.0F;
                 }
-                Debug.Log("Tick: " + accent + "/" + signatureHi);
+                //Debug.Log("Tick: " + accent + "/" + signatureHi);
             }
             phase += amp * 0.3F;
             amp *= 0.993F;

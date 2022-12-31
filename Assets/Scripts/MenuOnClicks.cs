@@ -16,7 +16,10 @@ public class MenuOnClicks : MonoBehaviour
     public void Exit() {
         Application.Quit();
     }
-    public void LessonLoader(string LessonNum) {
-        SceneManager.LoadScene("Lesson" + LessonNum, LoadSceneMode.Single);
+    public void LessonLoader(int LessonNum) {
+        SceneManager.LoadScene("Lesson" + LessonNum.ToString(), LoadSceneMode.Single);
+        PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Stars", 0);
+        PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Number", LessonNum);
+        PlayerPrefs.Save();
     }
 }

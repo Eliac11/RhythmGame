@@ -31,7 +31,6 @@ public class CatchZone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public KeyCode keyToPress;
     void OnTriggerStay2D(Collider2D other) {
         if(btnClick || Input.GetKeyDown(keyToPress)) {
-
             audioSource.PlayOneShot(clip, 0.5f);
             if(other.gameObject.tag == "BeatMark") {
                 beatCount++;
