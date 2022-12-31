@@ -4403,6 +4403,9 @@ MonoBehaviour:
   allBeats: 0
   allCatchedBeats: 0
   activestar: {fileID: 21300000, guid: 435d56e154d587740ac0499eef10344a, type: 3}
+  stars: 0
+  starsNew: 0
+  LessonNum: 0
 --- !u!1 &1989523941
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ public class CompleteMenu : MonoBehaviour {
     public float allCatchedBeats = 0f;
     public Sprite activestar;
     public int stars;
+    public int starsNew;
     public string LessonNum;
     
     public void ReturnToLessons() {
@@ -21,7 +22,7 @@ public class CompleteMenu : MonoBehaviour {
 
     void Start() {
         stars = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "Stars");
-        LessonNum = PlayerPrefs.GetString(SceneManager.GetActiveScene().name + "Number");
+        LessonNum = SceneManager.GetActiveScene().name.Remove(0, 6);
         allBeats = GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats; 
     }
 
@@ -37,22 +38,23 @@ public class CompleteMenu : MonoBehaviour {
            if( Mathf.RoundToInt((allCatchedBeats/allBeats))*100 >= 66) {
                 for (int i = 1; i < 4; i++) {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
-                    stars = 3;
+                    starsNew = 3;
                 }
            } else if(Mathf.RoundToInt((allCatchedBeats/allBeats))*100 >= 33 && Mathf.RoundToInt((allCatchedBeats/allBeats))*100 < 66) {
                 for (int i = 1; i < 3; i++) {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
-                    stars = 2;
+                    starsNew = 2;
                 }
            } else if(Mathf.RoundToInt((allCatchedBeats/allBeats))*100 < 33) {
                     GameObject.Find("Star1").GetComponent<SpriteRenderer>().sprite = activestar;
-                    stars = 1;
+                    starsNew = 1;
             }
         }
-        if (PlayerPrefs.GetInt("stars") <= stars)
+        if (PlayerPrefs.GetInt("Lesson" + LessonNum + "Stars") <= starsNew)
         {
-            PlayerPrefs.SetInt("Lesson" + LessonNum +"Stars", stars);
-            PlayerPrefs.Save();
+            PlayerPrefs.SetInt("Lesson" + LessonNum + "Stars", starsNew);
+
+            Debug.Log(LessonNum);
         }
     }
 }
