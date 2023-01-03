@@ -18,8 +18,10 @@ public class MenuOnClicks : MonoBehaviour
     }
     public void LessonLoader(int LessonNum) {
         SceneManager.LoadScene("Lesson" + LessonNum.ToString(), LoadSceneMode.Single);
-        PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Stars", 0);
-        PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Number", LessonNum);
-        PlayerPrefs.Save();
+        if(!PlayerPrefs.HasKey("Lesson" + LessonNum.ToString() + "Stars")) {
+            PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Stars", 0);
+            PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Number", LessonNum);
+            PlayerPrefs.Save();
+        }
     }
 }

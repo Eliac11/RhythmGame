@@ -22,6 +22,7 @@ public class CompleteMenu : MonoBehaviour {
 
     void Start() {
         stars = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "Stars");
+        Debug.Log(stars);
         LessonNum = SceneManager.GetActiveScene().name.Remove(0, 6);
         allBeats = GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats; 
     }
@@ -50,11 +51,10 @@ public class CompleteMenu : MonoBehaviour {
                     starsNew = 1;
             }
         }
-        if (PlayerPrefs.GetInt("Lesson" + LessonNum + "Stars") <= starsNew)
-        {
+        if (stars < starsNew) {
             PlayerPrefs.SetInt("Lesson" + LessonNum + "Stars", starsNew);
-
-            Debug.Log(LessonNum);
+            PlayerPrefs.Save();
+            // Debug.Log(LessonNum);
         }
     }
 }

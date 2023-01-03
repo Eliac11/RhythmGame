@@ -17,7 +17,7 @@ public class StarManager : MonoBehaviour
     void Update()
     {
         stars = PlayerPrefs.GetInt("Lesson" + LessonNumb.ToString() + "Stars");
-        Debug.Log(stars);
+        // Debug.Log(stars);
         for (int i = 1; i < stars+1; i++) {
             GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
         }
