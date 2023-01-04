@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 34155291}
   - component: {fileID: 34155289}
   - component: {fileID: 34155288}
-  - component: {fileID: 34155286}
   - component: {fileID: 34155293}
+  - component: {fileID: 34155286}
   - component: {fileID: 34155292}
   m_Layer: 0
   m_Name: CatchZone4
@@ -154,7 +154,7 @@ RectTransform:
   m_GameObject: {fileID: 34155284}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -17280}
-  m_LocalScale: {x: 230.4, y: 230.4, z: 230.4}
+  m_LocalScale: {x: 24.624, y: 24.624, z: 24.624}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 698515095}
@@ -164,7 +164,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 403.19998, y: -748.80005}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 9.4, y: 9.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &34155286
 BoxCollider2D:
@@ -183,14 +183,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94, y: 0.94}
+    oldSize: {x: 9.4, y: 9.4}
     newSize: {x: 0.94, y: 0.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.39, y: 2.964867}
   m_EdgeRadius: 0
 --- !u!50 &34155288
 Rigidbody2D:
@@ -344,6 +344,7 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 21a6fbaadd3756b40b9db71841bda8c3, type: 3}
   btnClick: 0
+  checkCollider: {fileID: 34155286}
   keyToPress: 102
 --- !u!1 &75765826
 GameObject:
@@ -381,7 +382,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &75765828
 MonoBehaviour:
@@ -670,7 +671,7 @@ RectTransform:
   m_GameObject: {fileID: 278363516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -17280}
-  m_LocalScale: {x: 230.4, y: 230.4, z: 230.4}
+  m_LocalScale: {x: 24.624, y: 24.624, z: 24.624}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 75765827}
@@ -679,8 +680,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 134.4, y: -748.80005}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 134.40024, y: -748.7985}
+  m_SizeDelta: {x: 9.4, y: 9.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &278363518
 BoxCollider2D:
@@ -699,14 +700,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94, y: 0.94}
+    oldSize: {x: 9.4, y: 9.4}
     newSize: {x: 0.94, y: 0.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.39, y: 2.964867}
   m_EdgeRadius: 0
 --- !u!114 &278363519
 MonoBehaviour:
@@ -723,6 +724,7 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 416b46ec73f2a634383267d58134dc0c, type: 3}
   btnClick: 0
+  checkCollider: {fileID: 278363518}
   keyToPress: 100
 --- !u!50 &278363520
 Rigidbody2D:
@@ -1251,8 +1253,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0.0000038146973}
+  m_SizeDelta: {x: 0, y: -0.000013351}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &494788591
 MonoBehaviour:
@@ -1939,8 +1941,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0}
+  m_SizeDelta: {x: 0, y: 0.107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &698515096
 MonoBehaviour:
@@ -2020,7 +2022,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.107}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &721151800
 MonoBehaviour:
@@ -2095,7 +2097,7 @@ RectTransform:
   m_GameObject: {fileID: 734213075}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -17280}
-  m_LocalScale: {x: 230.4, y: 230.4, z: 230.4}
+  m_LocalScale: {x: 24.623997, y: 24.623997, z: 24.623999}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 494788590}
@@ -2105,7 +2107,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -403.2, y: -748.80005}
-  m_SizeDelta: {x: 1, y: 1}
+  m_SizeDelta: {x: 9.4, y: 9.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &734213077
 MonoBehaviour:
@@ -2122,6 +2124,7 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: ab01fa40cb27b494880eba43e000d34f, type: 3}
   btnClick: 0
+  checkCollider: {fileID: 734213082}
   keyToPress: 97
 --- !u!50 &734213078
 Rigidbody2D:
@@ -2225,14 +2228,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94, y: 0.94}
+    oldSize: {x: 9.4, y: 9.4}
     newSize: {x: 0.94, y: 0.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.39, y: 2.9648674}
   m_EdgeRadius: 0
 --- !u!212 &734213083
 SpriteRenderer:
@@ -3749,7 +3752,7 @@ RectTransform:
   m_GameObject: {fileID: 1633761526}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -17280}
-  m_LocalScale: {x: 230.4, y: 230.4, z: 230.4}
+  m_LocalScale: {x: 24.624, y: 24.624, z: 24.624}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 721151799}
@@ -3758,8 +3761,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -134.4, y: -748.80005}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -134.39969, y: -748.7985}
+  m_SizeDelta: {x: 9.4, y: 9.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1633761528
 BoxCollider2D:
@@ -3778,14 +3781,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.94, y: 0.94}
+    oldSize: {x: 9.4, y: 9.4}
     newSize: {x: 0.94, y: 0.94}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9.39, y: 2.964867}
   m_EdgeRadius: 0
 --- !u!114 &1633761529
 MonoBehaviour:
@@ -3802,6 +3805,7 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 4bf20fba2c3b7554fb92ba58f96532fa, type: 3}
   btnClick: 0
+  checkCollider: {fileID: 1633761528}
   keyToPress: 115
 --- !u!50 &1633761530
 Rigidbody2D:

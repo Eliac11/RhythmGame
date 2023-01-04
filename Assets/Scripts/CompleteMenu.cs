@@ -36,17 +36,17 @@ public class CompleteMenu : MonoBehaviour {
         if(GameObject.Find("NoteList").transform.childCount == 0) {
            tiles.text = "Tiles Tapped: " + allCatchedBeats.ToString() + "/" + allBeats.ToString();
            percentage.text = "Complete Percent: " + Mathf.RoundToInt((allCatchedBeats/allBeats)*100);
-           if( Mathf.RoundToInt((allCatchedBeats/allBeats))*100 > 66) {
+           if( Mathf.RoundToInt((allCatchedBeats/allBeats)*100) > 66) {
                 for (int i = 1; i < 4; i++) {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
                     starsNew = 3;
                 }
-           } else if(Mathf.RoundToInt((allCatchedBeats/allBeats))*100 > 33 && Mathf.RoundToInt((allCatchedBeats/allBeats))*100 < 66) {
+           } else if(Mathf.RoundToInt((allCatchedBeats/allBeats)*100) > 33 && Mathf.RoundToInt((allCatchedBeats/allBeats)*100) < 66) {
                 for (int i = 1; i < 3; i++) {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
                     starsNew = 2;
                 }
-           } else if(Mathf.RoundToInt((allCatchedBeats/allBeats))*100 < 33) {
+           } else if(Mathf.RoundToInt((allCatchedBeats/allBeats)*100) < 33) {
                     GameObject.Find("Star1").GetComponent<SpriteRenderer>().sprite = activestar;
                     starsNew = 1;
             }
