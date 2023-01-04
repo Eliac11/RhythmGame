@@ -344,7 +344,6 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 21a6fbaadd3756b40b9db71841bda8c3, type: 3}
   btnClick: 0
-  checkCollider: {fileID: 34155286}
   keyToPress: 102
 --- !u!1 &75765826
 GameObject:
@@ -724,7 +723,6 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 416b46ec73f2a634383267d58134dc0c, type: 3}
   btnClick: 0
-  checkCollider: {fileID: 278363518}
   keyToPress: 100
 --- !u!50 &278363520
 Rigidbody2D:
@@ -1309,6 +1307,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1382,6 +1381,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7ffd65e6c1a6df4f806f66a269e0906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MidiName: FUCK
 --- !u!1 &566132874
 GameObject:
   m_ObjectHideFlags: 0
@@ -2124,7 +2136,6 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: ab01fa40cb27b494880eba43e000d34f, type: 3}
   btnClick: 0
-  checkCollider: {fileID: 734213082}
   keyToPress: 97
 --- !u!50 &734213078
 Rigidbody2D:
@@ -3805,7 +3816,6 @@ MonoBehaviour:
   audioSource: {fileID: 626443864}
   clip: {fileID: 8300000, guid: 4bf20fba2c3b7554fb92ba58f96532fa, type: 3}
   btnClick: 0
-  checkCollider: {fileID: 1633761528}
   keyToPress: 115
 --- !u!50 &1633761530
 Rigidbody2D:
