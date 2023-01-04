@@ -19,7 +19,7 @@ public class StarManager : MonoBehaviour
         stars = PlayerPrefs.GetInt("Lesson" + LessonNumb.ToString() + "Stars");
         // Debug.Log(stars);
         for (int i = 1; i < stars+1; i++) {
-            GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
+            GameObject.Find("Lvl" + LessonNumb.ToString() + "Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
         }
     }
 }
