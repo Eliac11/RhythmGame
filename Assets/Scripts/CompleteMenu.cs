@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,22 +10,24 @@ public class CompleteMenu : MonoBehaviour {
     public Text percentage;
     public Text result;
     public Text tiles;
+    public MidiToTiles MidiToTiles;
     public int allBeats;
     public float allCatchedBeats = 0f;
     public Sprite activestar;
     public int stars;
     public int starsNew;
     public string LessonNum;
+
+    private string[] midis = { "TestRoad", "AllNote120", "AllNote60" };
     
     public void ReturnToLessons() {
         SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
     }
 
     void Start() {
-        stars = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "Stars");
+        stars = PlayerPrefs.GetInt("Lesson" + MidiToTiles.MidiName + "Stars");
         Debug.Log(stars);
         LessonNum = SceneManager.GetActiveScene().name.Remove(0, 6);
-        allBeats = GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats; 
     }
 
 
@@ -52,9 +55,10 @@ public class CompleteMenu : MonoBehaviour {
             }
         }
         if (stars < starsNew) {
-            PlayerPrefs.SetInt("Lesson" + LessonNum + "Stars", starsNew);
+            PlayerPrefs.SetInt("Lesson" + MidiToTiles.MidiName + "Stars", starsNew);
+            PlayerPrefs.SetInt("StarsFor" + midis[Array.IndexOf(midis, MidiToTiles.MidiName) + 1], starsNew);
             PlayerPrefs.Save();
-            // Debug.Log(LessonNum);
+            // Debug.Log(MidiName);
         }
     }
 }

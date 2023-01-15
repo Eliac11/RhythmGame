@@ -5,9 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class MenuOnClicks : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
     public GameObject nmsWindow;
+    public Transform ButtonPrefab;
+    private int buttonCount;
+
+    private string[] midis = { "TestRoad", "AllNote120", "AllNote60" };
+
+    // void Start() {
+    //     buttonCount = 1;
+
+    //     foreach (var midi in midis)
+    //     {
+    //         Instantiate(ButtonPrefab, new Vector3(0f, -0.2f-(0.125f * buttonCount), 1.95f), Quaternion.identity).transform.parent = this.transform;
+    //         buttonCount = buttonCount + 1;
+    //     }
+    // }
+
     public void LessonsMenuScene() {
         SceneManager.LoadScene("LessonsMenu", LoadSceneMode.Single);
     }
@@ -17,20 +30,23 @@ public class MenuOnClicks : MonoBehaviour
     public void Exit() {
         Application.Quit();
     }
-    public void LessonLoader(int LessonNum) {
-        if(LessonNum > 0) {
-            if (PlayerPrefs.GetInt("Lesson" + (LessonNum-1).ToString() + "Stars") < 3 ) {
+    public void LessonLoader(string MidiName) {
+        if(MidiName != "TestRoad") {
+            if (PlayerPrefs.GetInt("StarsFor" + MidiName) < 3 ) {
                 nmsWindow.SetActive(true);
             } else {
-                SceneManager.LoadScene("Lesson" + LessonNum.ToString(), LoadSceneMode.Single);
+                PlayerPrefs.SetString("LessonName", MidiName);
+                PlayerPrefs.Save();
+                SceneManager.LoadScene("LessonPrototype", LoadSceneMode.Single);
             }
             
         } else {
-            SceneManager.LoadScene("Lesson" + LessonNum.ToString(), LoadSceneMode.Single);
+            PlayerPrefs.SetString("LessonName", "TestRoad");
+            PlayerPrefs.Save();
+            SceneManager.LoadScene("LessonPrototype", LoadSceneMode.Single);
         } 
-        if(!PlayerPrefs.HasKey("Lesson" + LessonNum.ToString() + "Stars")) {
-            PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Stars", 0);
-            PlayerPrefs.SetInt("Lesson" + LessonNum.ToString() + "Number", LessonNum);
+        if(!PlayerPrefs.HasKey("Lesson" + MidiName + "Stars")) {
+            PlayerPrefs.SetInt("Lesson" + MidiName + "Stars", 0);
             PlayerPrefs.Save();
         }
     }
