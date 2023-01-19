@@ -18,7 +18,9 @@ public class MidiToTiles : MonoBehaviour
 
     void Start()
     {
-        MidiName = PlayerPrefs.GetString("LessonName", "nothing");
+        if (MidiName == "AutoMidi") {
+            MidiName = PlayerPrefs.GetString("LessonName", "nothing");
+        }
 
         var midiFile = MidiFile.Read("./Assets/MIDIs/" + MidiName + ".mid");
 
@@ -26,28 +28,24 @@ public class MidiToTiles : MonoBehaviour
 
         foreach (var note in midiFile.GetNotes())
         {
-            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 960);
+            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
 
             switch (note.NoteNumber)
             {
-                case 24:
+                case 36:
                     Instantiate(notePrefab, new Vector3(-2.1f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                    // noteNew.transform.parent = this.transform;
                     break;
                 case 38:
                     Instantiate(notePrefab, new Vector3(-0.7f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                    // noteNew.transform.parent = this.transform;
+                    break;
+                case 40:
+                    Instantiate(notePrefab, new Vector3(0.7f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
                     break;
                 case 41:
-                    Instantiate(notePrefab, new Vector3(0.7f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                    // noteNew.transform.parent = this.transform;
-                    break;
-                case 42:
                     Instantiate(notePrefab, new Vector3(2.1f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                    // noteNew.transform.parent = this.transform;
                     break;
                 default:
-                    Debug.Log("А почему в midi файле есть нота " + note.NoteNumber + " (" + note + ")");
+                    Debug.Log("А почему в midi файле есть нота " + note);
                     break;
             }
 
