@@ -22,7 +22,9 @@ public class MidiToTiles : MonoBehaviour
             MidiName = PlayerPrefs.GetString("LessonName", "nothing");
         }
 
-        var midiFile = MidiFile.Read("./Assets/MIDIs/" + MidiName + ".mid");
+        Debug.Log(Application.dataPath);
+
+        var midiFile = MidiFile.Read("Assets/StreamingAssets/" + MidiName + ".mid");
 
         CompleteMenu.allBeats = midiFile.GetNotes().Count;
 

@@ -17,10 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LessonPrototype.unity
     guid: 8686d298b88202d4da34777e473c0ac7
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 356e77b229690044bb78678d46b063b0, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: e9090864213883a4380e56f0e4fe9313, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: c2394e895a5231f4bbe8f1ed88638f58, type: 2}
