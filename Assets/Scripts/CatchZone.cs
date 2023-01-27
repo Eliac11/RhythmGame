@@ -6,7 +6,9 @@ using UnityEngine.EventSystems;
 
 public class CatchZone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+
     public AudioSource audioSource;
+    public Animator animator;
     public AudioClip clip;
     public bool btnClick;
     SpriteRenderer renderer; 
@@ -36,6 +38,7 @@ public class CatchZone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
                 beatCount++;
                 Destroy(other.gameObject);
                 GameObject.Find("NoteList").GetComponent<MetronomeV2>().words.text = "Well Done!";
+                animator.SetTrigger("ButtonPressed");
                 // Debug.Log("Well Done!!!" + SendNumbers() + "/" + GameObject.Find("NoteList").GetComponent<MetronomeV2>().allBeats);
             }
         }
