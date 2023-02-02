@@ -2391,7 +2391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ffd65e6c1a6df4f806f66a269e0906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MidiName: beat2-1
+  MidiName: AutoMidi
   notePrefab: {fileID: 2752144005511462570, guid: c203376afbfcb2a4e973951a26838c3e, type: 3}
   CompleteMenu: {fileID: 1986181398}
 --- !u!1 &1253289587
