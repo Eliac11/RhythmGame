@@ -9,7 +9,7 @@ public class MenuOnClicks : MonoBehaviour
     public Transform ButtonPrefab;
     private int buttonCount;
 
-    private string[] midis = { "TestRoad", "AllNote120", "AllNote60" };
+    private string[] midis = { "beat2-1", "AllNote120", "AllNote60" };
 
     // void Start() {
     //     buttonCount = 1;
@@ -31,7 +31,7 @@ public class MenuOnClicks : MonoBehaviour
         Application.Quit();
     }
     public void LessonLoader(string MidiName) {
-        if(MidiName != "TestRoad") {
+        if(MidiName != "beat2-1") {
             if (PlayerPrefs.GetInt("StarsFor" + MidiName) < 3 ) {
                 nmsWindow.SetActive(true);
             } else {
@@ -41,7 +41,7 @@ public class MenuOnClicks : MonoBehaviour
             }
             
         } else {
-            PlayerPrefs.SetString("LessonName", "TestRoad");
+            PlayerPrefs.SetString("LessonName", "beat2-1");
             PlayerPrefs.Save();
             SceneManager.LoadScene("LessonPrototype", LoadSceneMode.Single);
         } 
