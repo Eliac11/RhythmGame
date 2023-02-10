@@ -16,8 +16,17 @@ using UnityEngine.Networking;
 public class MidiToTiles : MonoBehaviour
 {
     public string MidiName;
+
     public Transform notePrefab;
+
+    public RectTransform CZ1;
+    public RectTransform CZ2;
+    public RectTransform CZ3;
+    public RectTransform CZ4;
+
     public CompleteMenu CompleteMenu;
+    public MetronomeV2 Metronome;
+
     private float notePos;
 
     void Start()
@@ -33,58 +42,66 @@ public class MidiToTiles : MonoBehaviour
         // UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + MidiName + ".mid");
 
         string filePath = Application.streamingAssetsPath + "/" + MidiName + ".mid";
-            WWW www = new WWW(filePath);
+        WWW www = new WWW(filePath);
 
-            while (!www.isDone) {}
+        while (!www.isDone) {}
 
-            if (!string.IsNullOrEmpty(www.error))
-            {
-                Debug.LogError("Error while downloading the file: " + www.error);
-                return;
-            }
-
-            Stream SourceStream = new MemoryStream(www.bytes);
-
-            var midiFile = MidiFile.Read(SourceStream);
-
-            CompleteMenu.allBeats = midiFile.GetNotes().Count;
-
-            foreach (var note in midiFile.GetNotes())
-            {
-                notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
-
-                switch (note.NoteNumber)
-                {
-                    case 36:
-                        Instantiate(notePrefab, new Vector3(-2.1f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                        break;
-                    case 38:
-                        Instantiate(notePrefab, new Vector3(-0.7f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                        break;
-                    case 40:
-                        Instantiate(notePrefab, new Vector3(0.7f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                        break;
-                    case 41:
-                        Instantiate(notePrefab, new Vector3(2.1f, notePos, 0), Quaternion.identity).transform.parent = this.transform;
-                        break;
-                    default:
-                        Debug.Log("А почему в midi файле есть нота " + note + "?");
-                        break;
-                }
-
-                Debug.Log($@"
-                    note {note} (note number = {note.NoteNumber})
-                    time = {note.Time}
-                    length = {note.Length}
-                    velocity = {note.Velocity}
-                    off velocity = {note.OffVelocity}");
-            }
-
-            SourceStream.Close();
+        if (!string.IsNullOrEmpty(www.error)) {
+            www = new WWW("file://" + filePath);
+        }
+        
+        Hentai(www);
     }
 
-    void Update()
+    void Hentai(WWW www)
     {
-        
+        while (!www.isDone) {}
+
+        if (!string.IsNullOrEmpty(www.error))
+        {
+            Debug.LogError("Error while downloading the file: " + www.error);
+            return;
+        }
+
+        Stream SourceStream = new MemoryStream(www.bytes);
+
+        var midiFile = MidiFile.Read(SourceStream);
+
+        CompleteMenu.allBeats = midiFile.GetNotes().Count;
+
+        Metronome.bpm = midiFile..GetTempoMap().GetTempoAtTime().BeatsPerMinute;
+
+        foreach (var note in midiFile.GetNotes())
+        {
+            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
+
+            switch (note.NoteNumber)
+            {
+                case 36:
+                    Instantiate(notePrefab, new Vector2(CZ1.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                    break;
+                case 38:
+                    Instantiate(notePrefab, new Vector2(CZ2.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                    break;
+                case 40:
+                    Instantiate(notePrefab, new Vector2(CZ3.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                    break;
+                case 41:
+                    Instantiate(notePrefab, new Vector2(CZ4.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                    break;
+                default:
+                    Debug.Log("А почему в midi файле есть нота " + note + "?");
+                    break;
+            }
+
+            Debug.Log($@"
+                note {note} (note number = {note.NoteNumber})
+                time = {note.Time}
+                length = {note.Length}
+                velocity = {note.Velocity}
+                off velocity = {note.OffVelocity}");
+        }
+
+        SourceStream.Close();
     }
 }
