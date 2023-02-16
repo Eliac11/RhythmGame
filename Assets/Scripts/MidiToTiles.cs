@@ -35,73 +35,77 @@ public class MidiToTiles : MonoBehaviour
             MidiName = PlayerPrefs.GetString("LessonName", "nothing");
         }
         
-        // FileStream SourceStream = File.Open(Path.Combine(Application.streamingAssetsPath, MidiName + ".mid"), FileMode.Open);
-
-        Debug.Log(Application.streamingAssetsPath + "/" + MidiName + ".mid");
-        // var req = System.Net.WebRequest.Create(Application.streamingAssetsPath + "/" + MidiName + ".mid");
-        // UnityWebRequest www = UnityWebRequest.Get(Application.streamingAssetsPath + "/" + MidiName + ".mid");
-
-        string filePath = Application.streamingAssetsPath + "/" + MidiName + ".mid";
-        WWW www = new WWW(filePath);
-
-        while (!www.isDone) {}
-
-        if (!string.IsNullOrEmpty(www.error)) {
-            www = new WWW("file://" + filePath);
-        }
-        
-        Hentai(www);
+        string filePath = System.IO.Path.Combine("file://" + Application.streamingAssetsPath, MidiName + ".mid");
+        LoadMidiFile(filePath);
     }
 
-    void Hentai(WWW www)
+    void LoadMidiFile(string filePath)
     {
+        UnityWebRequest www = UnityWebRequest.Get(filePath);
+        Debug.Log(filePath);
+        www.SendWebRequest();
+
         while (!www.isDone) {}
 
-        if (!string.IsNullOrEmpty(www.error))
+        if (www.result != UnityWebRequest.Result.Success)
         {
-            Debug.LogError("Error while downloading the file: " + www.error);
-            return;
+            Debug.LogError("Error loading MIDI file: " + www.error);
         }
-
-        Stream SourceStream = new MemoryStream(www.bytes);
-
-        var midiFile = MidiFile.Read(SourceStream);
-
-        CompleteMenu.allBeats = midiFile.GetNotes().Count;
-
-        Metronome.bpm = midiFile..GetTempoMap().GetTempoAtTime().BeatsPerMinute;
-
-        foreach (var note in midiFile.GetNotes())
+        else
         {
-            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
+            byte[] midiData = www.downloadHandler.data;
+            MemoryStream stream = new MemoryStream(midiData);
+            MidiFile midiFile = MidiFile.Read(stream);
+            TempoMap tempoMap = midiFile.GetTempoMap();
 
-            switch (note.NoteNumber)
+            CompleteMenu.allBeats = midiFile.GetNotes().Count;
+
+            Metronome.bpm = tempoMap.GetTempoAtTime((MidiTimeSpan)0).BeatsPerMinute;
+
+            // string MfilePath = "file://" + Application.dataPath + "/Resources/" + MidiName + ".mp3";
+            // Metronome.musicFileName = MfilePath;
+                // audioSource = GetComponent<AudioSource>();
+                // AudioClip musicClip = Resources.Load<AudioClip>(musicFileName);
+                // if (musicClip != null)
+                // {
+                //     audioSource.clip = musicClip;
+                //     audioSource.Play();
+                // }
+                // else
+                // {
+                //     Debug.LogError("Failed to load music clip: " + musicFileName);
+                // }
+
+            foreach (var note in midiFile.GetNotes())
             {
-                case 36:
-                    Instantiate(notePrefab, new Vector2(CZ1.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
-                    break;
-                case 38:
-                    Instantiate(notePrefab, new Vector2(CZ2.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
-                    break;
-                case 40:
-                    Instantiate(notePrefab, new Vector2(CZ3.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
-                    break;
-                case 41:
-                    Instantiate(notePrefab, new Vector2(CZ4.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
-                    break;
-                default:
-                    Debug.Log("А почему в midi файле есть нота " + note + "?");
-                    break;
+                notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
+
+                switch (note.NoteNumber)
+                {
+                    case 36:
+                        Instantiate(notePrefab, new Vector2(CZ1.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                        break;
+                    case 38:
+                        Instantiate(notePrefab, new Vector2(CZ2.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                        break;
+                    case 40:
+                        Instantiate(notePrefab, new Vector2(CZ3.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                        break;
+                    case 41:
+                        Instantiate(notePrefab, new Vector2(CZ4.position.x, notePos), Quaternion.identity).transform.parent = this.transform;
+                        break;
+                    default:
+                        Debug.Log("А почему в midi файле есть нота " + note + "?");
+                        break;
+                }
+
+                Debug.Log($@"
+                    note {note} (note number = {note.NoteNumber})
+                    time = {note.Time}
+                    length = {note.Length}
+                    velocity = {note.Velocity}
+                    off velocity = {note.OffVelocity}");
             }
-
-            Debug.Log($@"
-                note {note} (note number = {note.NoteNumber})
-                time = {note.Time}
-                length = {note.Length}
-                velocity = {note.Velocity}
-                off velocity = {note.OffVelocity}");
         }
-
-        SourceStream.Close();
     }
 }

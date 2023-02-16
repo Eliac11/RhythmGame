@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class MetronomeV2 : MonoBehaviour
 {
-    public float bpm = 120f;
+    public double bpm = 120;
     float beatTempo;
     public GameObject metronome;
     public GameObject CompleteWindow;
@@ -24,7 +25,7 @@ public class MetronomeV2 : MonoBehaviour
         CompleteWindow.SetActive(false);
         allBeats = GameObject.Find("NoteList").transform.childCount;
         // bc = GameObject.Find("CatchZone").GetComponent<BeatCatcher>();
-        beatTempo = bpm / 60f;
+        beatTempo = Convert.ToSingle(bpm) / 60f;
     }
     IEnumerator waiter(int secs) {
         CompleteWindow.SetActive(true);
@@ -36,6 +37,7 @@ public class MetronomeV2 : MonoBehaviour
         }
         if(!hasStarted) {
             if(Input.anyKeyDown) {
+                beatTempo = Convert.ToSingle(bpm) / 60f;
                 hasStarted = true;
                 startWords.text = "";
                 Instantiate(metronome, new Vector3(0, -6, 0), Quaternion.identity);

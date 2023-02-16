@@ -2408,6 +2408,7 @@ GameObject:
   - component: {fileID: 1227746371}
   - component: {fileID: 1227746370}
   - component: {fileID: 1227746372}
+  - component: {fileID: 1227746373}
   m_Layer: 0
   m_Name: NoteList
   m_TagString: Untagged
@@ -2427,13 +2428,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034cb20d1dc62ab4895801b1597cc5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 140
+  bpm: 1
   metronome: {fileID: 6460048100562120796, guid: b0c31559ebfd6c44bb0570011bb54b8d, type: 3}
   CompleteWindow: {fileID: 1986181394}
   allCatchedBeats: 0
   hasStarted: 0
   words: {fileID: 1114212383}
   startWords: {fileID: 1365248649}
+  musicFileName: 
   allBeats: 0
 --- !u!224 &1227746371
 RectTransform:
@@ -2467,9 +2469,110 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ffd65e6c1a6df4f806f66a269e0906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MidiName: beat2-1
+  MidiName: AutoMidi
   notePrefab: {fileID: 2752144005511462570, guid: c203376afbfcb2a4e973951a26838c3e, type: 3}
+  CZ1: {fileID: 734213076}
+  CZ2: {fileID: 1633761527}
+  CZ3: {fileID: 278363517}
+  CZ4: {fileID: 34155285}
   CompleteMenu: {fileID: 1986181398}
+  Metronome: {fileID: 1227746370}
+--- !u!82 &1227746373
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227746369}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1253289587
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,7 +3640,7 @@ MonoBehaviour:
   percentage: {fileID: 1647130651}
   result: {fileID: 215283837}
   tiles: {fileID: 572455691}
-  MidiToTiles: {fileID: 1227746372}
+  MidiToTiles: {fileID: 0}
   allBeats: 0
   allCatchedBeats: 0
   activestar: {fileID: 21300000, guid: 435d56e154d587740ac0499eef10344a, type: 3}
