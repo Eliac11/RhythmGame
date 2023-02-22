@@ -2435,7 +2435,6 @@ MonoBehaviour:
   hasStarted: 0
   words: {fileID: 1114212383}
   startWords: {fileID: 1365248649}
-  musicFileName: 
   allBeats: 0
 --- !u!224 &1227746371
 RectTransform:
@@ -2469,7 +2468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ffd65e6c1a6df4f806f66a269e0906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MidiName: AutoMidi
+  MidiName: beat2-1
   notePrefab: {fileID: 2752144005511462570, guid: c203376afbfcb2a4e973951a26838c3e, type: 3}
   CZ1: {fileID: 734213076}
   CZ2: {fileID: 1633761527}
