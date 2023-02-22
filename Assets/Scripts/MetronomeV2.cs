@@ -16,6 +16,7 @@ public class MetronomeV2 : MonoBehaviour
     public bool hasStarted = false;
     public Text words;
     public Text startWords;
+    public string musicFileName;
 
     // public BeatCatcher bc;
     public int allBeats;
