@@ -49,19 +49,19 @@ public class CompleteMenu : MonoBehaviour {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
                     starsNew = 3;
                 }
-                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/goodmeme" + UnityEngine.Random.Range(1,6).ToString() + ".png"));
+                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/goodmeme" + UnityEngine.Random.Range(1,12).ToString() + ".png"));
                 memeSet = true;
             } else if(Mathf.RoundToInt((allCatchedBeats/allBeats)*100) > 33 && Mathf.RoundToInt((allCatchedBeats/allBeats)*100) < 66) {
                 for (int i = 1; i < 3; i++) {
                     GameObject.Find("Star" + i.ToString()).GetComponent<SpriteRenderer>().sprite = activestar;
                     starsNew = 2;
                 }
-                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/normalmeme" + UnityEngine.Random.Range(1,6).ToString() + ".png"));
+                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/normalmeme" + UnityEngine.Random.Range(1,13).ToString() + ".png"));
                 memeSet = true;
             } else if(Mathf.RoundToInt((allCatchedBeats/allBeats)*100) < 33) {
                 GameObject.Find("Star1").GetComponent<SpriteRenderer>().sprite = activestar;
                 starsNew = 1;
-                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/badmeme" + UnityEngine.Random.Range(1,6).ToString() + ".png"));
+                StartCoroutine(LoadImageFromURL(Application.streamingAssetsPath  + "/Memes/badmeme" + UnityEngine.Random.Range(1,21).ToString() + ".png"));
                 memeSet = true;
             }
         }
