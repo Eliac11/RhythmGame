@@ -2513,6 +2513,10 @@ MonoBehaviour:
   words: {fileID: 1114212383}
   startWords: {fileID: 1365248649}
   musicFileName: 
+  audioSource: {fileID: 2077420019}
+  clip: {fileID: 0}
+  hasLoaded: 0
+  isPlaying: 0
   allBeats: 0
 --- !u!224 &1227746371
 RectTransform:
