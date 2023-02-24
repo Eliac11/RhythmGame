@@ -72,7 +72,7 @@ public class MidiToTiles : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("Failed to load music clip: " + Metronome.musicFileName);
+                    //Debug.LogError("Failed to load music clip: " + Metronome.musicFileName);
                 }
 
             foreach (var note in midiFile.GetNotes())

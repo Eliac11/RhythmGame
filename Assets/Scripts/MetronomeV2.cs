@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking;
 
 public class MetronomeV2 : MonoBehaviour
 {
@@ -17,9 +18,19 @@ public class MetronomeV2 : MonoBehaviour
     public Text words;
     public Text startWords;
     public string musicFileName;
+    // Для звука
+    public AudioSource audioSource;
+    public AudioClip clip;
+    public bool hasLoaded = false;
+    public bool isPlaying = false;
 
     // public BeatCatcher bc;
     public int allBeats;
+    void PlayMusic(bool isPlaying) {
+        if (!isPlaying) {
+            audioSource.PlayOneShot(clip, 0.25f);
+        }
+    }  
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +38,11 @@ public class MetronomeV2 : MonoBehaviour
         allBeats = GameObject.Find("NoteList").transform.childCount;
         // bc = GameObject.Find("CatchZone").GetComponent<BeatCatcher>();
         beatTempo = Convert.ToSingle(bpm) / 60f;
+        // Слава пути тут делай, ес чо
+        // Я пометку сделал, я умничка :3
+        StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/beat2-1.mp3"));
+        audioSource.clip = clip;
+        hasLoaded = true;
     }
     IEnumerator waiter(int secs) {
         CompleteWindow.SetActive(true);
@@ -41,10 +57,25 @@ public class MetronomeV2 : MonoBehaviour
                 beatTempo = Convert.ToSingle(bpm) / 60f;
                 hasStarted = true;
                 startWords.text = "";
+                PlayMusic(isPlaying);
+                isPlaying = true;
                 Instantiate(metronome, new Vector3(0, -6, 0), Quaternion.identity);
             }
         } else {
             transform.position -= new Vector3(0f, beatTempo * Time.deltaTime, 0f);
         }
+    }
+    IEnumerator GetAudioClip(string fullPath) {
+        if (!hasLoaded) {
+            using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(fullPath, AudioType.MPEG)) {
+                yield return www.SendWebRequest();
+                if (www.isNetworkError || www.isHttpError) {
+                    Debug.Log(www.error);
+                } else {
+                    clip = DownloadHandlerAudioClip.GetContent(www);  
+                    Debug.Log("Loaded Clip uwu");
+                }
+            }
+        } 
     }
 }
