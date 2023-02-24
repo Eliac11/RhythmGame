@@ -62,19 +62,18 @@ public class MidiToTiles : MonoBehaviour
 
             Metronome.bpm = tempoMap.GetTempoAtTime((MidiTimeSpan)0).BeatsPerMinute;
 
-            // string MfilePath = "file://" + Application.dataPath + "/Resources/" + MidiName + ".mp3";
-            // Metronome.musicFileName = MfilePath;
-                // audioSource = GetComponent<AudioSource>();
-                // AudioClip musicClip = Resources.Load<AudioClip>(musicFileName);
-                // if (musicClip != null)
-                // {
-                //     audioSource.clip = musicClip;
-                //     audioSource.Play();
-                // }
-                // else
-                // {
-                //     Debug.LogError("Failed to load music clip: " + musicFileName);
-                // }
+            string MfilePath = Application.dataPath + "/Resources/" + MidiName + ".mp3";
+            Metronome.musicFileName = MfilePath;
+                var audioSource = GetComponent<AudioSource>();
+                AudioClip musicClip = Resources.Load<AudioClip>(Metronome.musicFileName);
+                if (musicClip != null)
+                {
+                    audioSource.clip = musicClip;
+                }
+                else
+                {
+                    Debug.LogError("Failed to load music clip: " + Metronome.musicFileName);
+                }
 
             foreach (var note in midiFile.GetNotes())
             {
