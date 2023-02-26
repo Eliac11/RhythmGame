@@ -12,6 +12,8 @@ using Melanchall.DryWetMidi.Multimedia;
 using Melanchall.DryWetMidi.Standards;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
+using static NativeShare;
 
 public class MidiToTiles : MonoBehaviour
 {
