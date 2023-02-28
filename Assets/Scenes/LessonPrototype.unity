@@ -2874,6 +2874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 034cb20d1dc62ab4895801b1597cc5f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MusicName: AutoMidi
   bpm: 1
   metronome: {fileID: 6460048100562120796, guid: b0c31559ebfd6c44bb0570011bb54b8d, type: 3}
   CompleteWindow: {fileID: 1986181394}

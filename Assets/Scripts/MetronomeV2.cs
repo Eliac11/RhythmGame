@@ -9,6 +9,8 @@ using UnityEngine.Networking;
 
 public class MetronomeV2 : MonoBehaviour
 {
+    public string MusicName;
+
     public double bpm = 120;
     float beatTempo;
     public GameObject metronome;
@@ -40,6 +42,10 @@ public class MetronomeV2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (MusicName == "AutoMidi") {
+            MusicName = PlayerPrefs.GetString("LessonName", "nothing");
+        }
+
         CompleteWindow.SetActive(false);
         allBeats = GameObject.Find("NoteList").transform.childCount;
         // bc = GameObject.Find("CatchZone").GetComponent<BeatCatcher>();
@@ -48,7 +54,7 @@ public class MetronomeV2 : MonoBehaviour
         // Я пометку сделал, я умничка :3
         
         // Спасибо, милый <3
-        StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/beat2-1.mp3"));
+        StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/" + MusicName + ".mp3"));
         audioSource.clip = clip;
         hasLoaded = true;
     }
