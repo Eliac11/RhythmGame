@@ -76,7 +76,7 @@ public class MidiToTiles : MonoBehaviour
 
         foreach (var note in midiFile.GetNotes())
         {
-            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / 60);
+            notePos = Convert.ToSingle(Convert.ToDouble(note.Time) / Metronome.bpm)-2.1f;
 
             switch (note.NoteNumber)
             {
