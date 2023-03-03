@@ -20,6 +20,7 @@ public class CatchZone : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerDown(PointerEventData eventData){
         btnClick = true;
+        btnClick = false;
         renderer.color = new Color(0.78f, 0.78f, 0.78f, 1f);
     }
     public void OnPointerUp(PointerEventData eventData){

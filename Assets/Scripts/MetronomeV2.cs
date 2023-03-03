@@ -24,6 +24,12 @@ public class MetronomeV2 : MonoBehaviour
     public bool hasLoaded = false;
     public bool isPlaying = false;
 
+    // Для сообщения
+    public string message1 = "Ты просто посмотри! Я набрал ";
+    public string message2 = " очков в In Valid Rhythm! А ты сможешь также?! ";
+    public string url = "*ссылка на In Valid Rhythm*";
+
+
     // public BeatCatcher bc;
     public int allBeats;
     void PlayMusic(bool isPlaying) {
@@ -40,6 +46,9 @@ public class MetronomeV2 : MonoBehaviour
         beatTempo = Convert.ToSingle(bpm) / 60f;
         // Слава пути тут делай, ес чо
         // Я пометку сделал, я умничка :3
+        
+        // Спасибо, милый <3
+        // Мяу ❤
         StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/beat2-1.mp3"));
         audioSource.clip = clip;
         hasLoaded = true;
@@ -54,7 +63,7 @@ public class MetronomeV2 : MonoBehaviour
         }
         if(!hasStarted) {
             if(Input.anyKeyDown) {
-                beatTempo = Convert.ToSingle(bpm) / 60f;
+                beatTempo = Convert.ToSingle(bpm)/ 60f; 
                 hasStarted = true;
                 startWords.text = "";
                 PlayMusic(isPlaying);
@@ -77,5 +86,18 @@ public class MetronomeV2 : MonoBehaviour
                 }
             }
         } 
+    }
+
+    public void Share()
+    {
+        StartCoroutine(ShareRoutine());
+    }
+
+    private IEnumerator ShareRoutine()
+    {
+        yield return new WaitForEndOfFrame();
+
+        string shareText = message1 + CompleteWindow.GetComponent<CompleteMenu>().allCatchedBeats + "/" + CompleteWindow.GetComponent<CompleteMenu>().allBeats + message2 + url;
+        new NativeShare().SetText(shareText).Share();
     }
 }
