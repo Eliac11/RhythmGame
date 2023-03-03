@@ -54,12 +54,8 @@ public class MetronomeV2 : MonoBehaviour
         // Я пометку сделал, я умничка :3
         
         // Спасибо, милый <3
-<<<<<<< HEAD
         // Мяу ❤
         StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/beat2-1.mp3"));
-=======
-        StartCoroutine(GetAudioClip(Application.streamingAssetsPath  + "/Music/" + MusicName + ".mp3"));
->>>>>>> 786c9d2ebe3b65373e2c727ca3fc9d747cc0b501
         audioSource.clip = clip;
         hasLoaded = true;
     }
